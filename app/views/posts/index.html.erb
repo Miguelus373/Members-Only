@@ -5,6 +5,9 @@
 <table>
   <thead>
     <tr>
+      <% if member_signed_in? %>
+      <th>Author</th>
+      <% end %>
       <th>Title</th>
       <th>Body</th>
       <th colspan="3"></th>
@@ -14,6 +17,9 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
+        <% if member_signed_in? %>
+        <td><%= post.member.name %></td>
+        <% end %>
         <td><%= post.title %></td>
         <td><%= post.body %></td>
         <td><%= link_to 'Show', post %></td>
@@ -26,4 +32,9 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path %>
+<%= link_to 'New Post', new_post_path %> <br>
+<% if member_signed_in? %>
+<%= link_to 'Log out', destroy_member_session_path, method: :delete %> <br>
+<% else %>
+<%= link_to 'Log in', new_member_session_path %> <br>
+<% end %>
