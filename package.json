@@ -1,5 +1,5 @@
 {
-  "name": "Members_Only",
+  "name": "members-only",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
