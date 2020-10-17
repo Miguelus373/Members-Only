@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
-  before_action :signed_in_only!, only: [:new, :create]
+  before_action :signed_in_only!, only: %i[new create]
 
   # GET /posts
   def index
@@ -56,7 +56,7 @@ class PostsController < ApplicationController
   def set_post
     @post = Post.find(params[:id])
   end
-  
+
   # Used to redirect a create a member session if signed in
   def signed_in_only!
     redirect_to new_member_session_path unless signed_in?
