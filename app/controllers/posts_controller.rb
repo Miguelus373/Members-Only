@@ -4,7 +4,8 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all
+    @posts = Post.all.order('created_at DESC')
+    @post = Post.new
   end
 
   # GET /posts/1
@@ -13,7 +14,6 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = current_member.posts.build
-    @post = Post.new
   end
 
   # GET /posts/1/edit
