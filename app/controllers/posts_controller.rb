@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = current_member.posts.build
+    @post = Post.new
   end
 
   # GET /posts/1/edit
